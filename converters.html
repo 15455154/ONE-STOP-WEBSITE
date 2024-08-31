@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Stop - Converters</title>
+    <link rel="stylesheet" href="css\style.css">
+    <link rel="icon" href="assets\images\logos\logo.ico" type="image/x-icon">
+</head>
+<style>/* General Styles */
+    body {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Header Styles */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: #021024;
+        color: #fff;
+    }
+    
+    .header-content {
+        display: flex;
+        align-items: center;
+    }
+    
+    .header-content .logo {
+        height: 50px; /* Adjust the height as needed */
+        margin-right: 15px; /* Space between the logo and text */
+    }
+    
+    header h1 {
+        margin: 0;
+        font-size: 24px;
+    }
+    
+    nav {
+        display: flex;
+        gap: 20px;
+    }
+    
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 5px 10px;
+    }
+    
+    nav a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Main Section Styles */
+    main {
+        padding: 20px;
+        background-color: #330066;
+    }
+    
+    .intro {
+        text-align: center;
+    }
+    
+    .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    button {
+        background-color: #183153;
+        border: none;
+        color: #330066;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    button:hover {
+        background-color: #ffd401;
+        color: #183153;
+    }
+    
+    button span {
+        z-index: 1;
+        position: relative;
+    }
+    
+    button::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: #ffd401;
+        transition: all 0.4s ease-in-out;
+    }
+    
+    button:hover::after {
+        width: 100%;
+    }
+    </style>
+<body>
+    <header>
+        <h1>One Stop</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="ai-assistance.html">AI Assistance</a>
+            <a href="converters.html">Converters</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <main>
+       <!-- converters.html (inside the <main> section) -->
+<section>
+    <h2>Converters</h2>
+    <p>Find the perfect tool to convert your files in any format you need.</p>
+
+    <form id="converterForm">
+        <label for="fileType">Choose File Type:</label>
+        <select id="fileType" required>
+            <option value="document">Document</option>
+            <option value="image">Image</option>
+            <option value="audio">Audio</option>
+            <option value="video">Video</option>
+        </select>
+
+        <label for="format">Convert to:</label>
+        <input type="text" id="format" placeholder="e.g., PDF, JPG, MP3, AVI" required>
+
+        <label for="fileInput">Choose File:</label>
+        <input type="file" id="fileInput" required>
+
+        <button type="button" id="convertButton">Convert</button>
+    </form>
+</section>
+    </main>
+
+    <footer>
+        <p>Contact Us | Follow Us on Social Media | &copy; 2024 One Stop</p>
+    </footer>
+    <!-- Link to your JavaScript file -->
+    <script src="converters.js"></script>
+</body>
+</html>

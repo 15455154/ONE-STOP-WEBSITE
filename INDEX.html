@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Stop - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/images/logos/logo.ico" type="image/x-icon">
+</head>
+<style>/* General Styles */
+    body {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Header Styles */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: #021024;
+        color: #fff;
+    }
+    
+    .header-content {
+        display: flex;
+        align-items: center;
+    }
+    
+    .header-content .logo {
+        height: 50px; /* Adjust the height as needed */
+        margin-right: 15px; /* Space between the logo and text */
+    }
+    
+    header h1 {
+        margin: 0;
+        font-size: 24px;
+    }
+    
+    nav {
+        display: flex;
+        gap: 20px;
+    }
+    
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 5px 10px;
+    }
+    
+    nav a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Main Section Styles */
+    main {
+        padding: 20px;
+        background-color: #330066;
+    }
+    
+    .intro {
+        text-align: center;
+    }
+    
+    .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    button {
+        background-color: #183153;
+        border: none;
+        color: #330066;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    button:hover {
+        background-color: #ffd401;
+        color: #183153;
+    }
+    
+    button span {
+        z-index: 1;
+        position: relative;
+    }
+    
+    button::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: #ffd401;
+        transition: all 0.4s ease-in-out;
+    }
+    
+    button:hover::after {
+        width: 100%;
+    }
+    </style>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="assets\images\logos\logo.jpg" alt="One Stop Logo" class="logo">
+            <h1>One Stop</h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="ai-assistance.html">AI Assistance</a>
+            <a href="converters.html">Converters</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h2>Welcome to One Stop</h2>
+            <p>Your one-stop solution for all types of converters, AI tools, and more!</p>
+            <div class="cta-buttons">
+                <button><span><a href="ai-assistance.html" class="button">Explore AI Assistance</a></span></button>
+                <button><span><a href="converters.html" class="button">Explore Converters</a></span></button>
+                <button><span><a href="login.html" class="button">Login</a></span></button>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

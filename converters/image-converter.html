@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Image Format Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #282c34;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .converter {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #3b3f47;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        select, input[type="file"], button, a {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            text-decoration: none;
+            color: white;
+            display: inline-block;
+        }
+
+        button, a.download {
+            background-color: #61dafb;
+            cursor: pointer;
+        }
+
+        button:hover, a.download:hover {
+            background-color: #21a1f1;
+        }
+
+        img {
+            margin-top: 20px;
+            max-width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="converter">
+        <h2>Image Format Converter</h2>
+        <input type="file" id="imageInput" accept="image/*, .pdf, .ai, .eps, .svg, .psd, .tiff, .bmp, .raw, .webp, .heif"><br>
+        <label for="fromFormat">From:</label>
+        <select id="fromFormat">
+            <option value="jpeg">JPEG</option>
+            <option value="gif">GIF</option>
+            <option value="png">PNG</option>
+            <option value="tiff">TIFF</option>
+            <option value="bmp">BMP</option>
+            <option value="pdf">PDF</option>
+            <option value="eps">EPS</option>
+            <option value="raw">RAW</option>
+            <option value="ai">AI</option>
+            <option value="heif">HEIF</option>
+            <option value="psd">PSD</option>
+            <option value="svg">SVG</option>
+            <option value="webp">WebP</option>
+        </select>
+        <label for="toFormat">To:</label>
+        <select id="toFormat">
+            <option value="jpeg">JPEG</option>
+            <option value="gif">GIF</option>
+            <option value="png">PNG</option>
+            <option value="tiff">TIFF</option>
+            <option value="bmp">BMP</option>
+            <option value="pdf">PDF</option>
+            <option value="eps">EPS</option>
+            <option value="raw">RAW</option>
+            <option value="ai">AI</option>
+            <option value="heif">HEIF</option>
+            <option value="psd">PSD</option>
+            <option value="svg">SVG</option>
+            <option value="webp">WebP</option>
+        </select><br>
+        <button onclick="uploadAndConvert()">Convert</button>
+        <a id="downloadLink" href="#" style="display:none;">Download Converted Image</a>
+    </div>
+
+    <script>
+        function uploadAndConvert() {
+            const fileInput = document.getElementById('imageInput');
+            const fromFormat = document.getElementById('fromFormat').value;
+            const toFormat = document.getElementById('toFormat').value;
+            const downloadLink = document.getElementById('downloadLink');
+
+            if (fileInput.files.length === 0) {
+                alert('Please select an image.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('image', fileInput.files[0]);
+            formData.append('fromFormat', fromFormat);
+            formData.append('toFormat', toFormat);
+
+            fetch('/convert', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.blob())
+            .then(blob => {
+                const url = URL.createObjectURL(blob);
+                downloadLink.href = url;
+                downloadLink.style.display = 'inline-block';
+                downloadLink.download = `converted_image.${toFormat}`;
+                downloadLink.textContent = 'Download Converted Image';
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
