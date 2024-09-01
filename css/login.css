@@ -208,3 +208,9 @@ body {
     font-family: 'Courier New', Courier, monospace;
     animation: typing 3s steps(30, end), blink .75s step-end infinite;
 }
+
+button:hover{
+    cursor: pointer;
+    background-color: #7a71f7;
+    text-color:white;
+}
